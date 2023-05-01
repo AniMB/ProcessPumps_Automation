@@ -277,4 +277,3 @@ def data_entry():
     window.mainloop()
     
     return(overall)
-print(data_entry())
