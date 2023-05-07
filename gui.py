@@ -3,8 +3,7 @@ def data_entry():
 
     window=tkinter.Tk()
     window.title("Data entry")
-
-
+    
     # create a canvas widget and configure it
     canvas = tkinter.Canvas(window)
     canvas.pack(side='left', fill="both", expand=True)
@@ -170,8 +169,8 @@ def data_entry():
 
     def check_entry():
         projectName = proj_name.get()
-        if proj_name.get() == '':
-            return 0
+        if projectName == '':
+            return None
         else:
             window.title(f"Data Entry for {projectName}")
             
@@ -187,7 +186,7 @@ def data_entry():
         widget.grid_configure( pady=1)
         
     #RPM input
-    rpm_frame=tkinter.LabelFrame(frame, text="RPM values")
+    '''rpm_frame=tkinter.LabelFrame(frame, text="RPM values")
     rpm_frame.grid(row=4, column=0,sticky='ew')
 
     rpm1_lab=tkinter.Label(rpm_frame, text=" RPM 1")
@@ -215,7 +214,7 @@ def data_entry():
     rpm5=tkinter.Entry(rpm_frame)
     rpm5.grid(row=3, column=1 )
     for widget in rpm_frame.winfo_children():    
-        widget.grid_configure( pady=1)
+        widget.grid_configure( pady=1)'''
     #Additional  values
     additional_frame=tkinter.LabelFrame(frame, text="Initial Values")
     additional_frame.grid(row=4, column=0,sticky='ew')
@@ -243,21 +242,26 @@ def data_entry():
         motorEffi_=motorEffi.get()
         projectName = proj_name.get()
         customer_WO_=customer_WO.get()
-        rpm1_=rpm1.get()
+        '''rpm1_=rpm1.get()
         rpm2_=rpm2.get()
         rpm3_=rpm3.get()
         rpm4_=rpm4.get()
-        rpm5_=rpm5.get()
+        rpm5_=rpm5.get()'''
         dict=vars()
         
                 
         return dict
-        
+    def endWindow():
+        window.quit()     
 
-    data_entry_button=tkinter.Button(frame, text="Enter data into System", command=enter_data)
+    def exit_call():
+        enter_data()
+        endWindow()
+
+
+    data_entry_button=tkinter.Button(frame, text="Enter data into System", command=exit_call)
     data_entry_button.grid(row=5, column=0,  pady=10, sticky='news')
 
-    
 
 
 
@@ -272,8 +276,11 @@ def data_entry():
 
 
 
+
+    overall=enter_data()      
             
-    overall=enter_data()        
     window.mainloop()
-    
-    return(overall)
+
+
+    return overall
+data_entry()

@@ -5,8 +5,15 @@ int amperepin=A3;
 int powerpin=A4;
 int pfpin=A5;
 int buttonpin=9;
+int voltagepin=A6;
+int rpmpin=A7;
+int temppin=A8;
+int vibpinx=A9;
+int vibpiny=A10;
+int vibpinz=A11;
 
-int suction, delivery, flow, ampere, power, pf ;  // variable to store the value coming from the sensor
+
+int suction, delivery, flow, ampere, power, pf, voltage, temp, rpm, vibx, viby, vibz ;  // variable to store the value coming from the sensor
 int confirm=0;
 
 void setup() {
@@ -19,6 +26,11 @@ void setup() {
   pinMode(powerpin, INPUT);
   pinMode(pfpin, INPUT);
   pinMode(buttonpin, Input)
+  pinMode(voltagepin, INPUT);
+  pinMode(rpmpin, INPUT);
+  pinMode(vibpinx, INPUT);
+  pinMode(vibpiny, INPUT);
+  pinMode(vibpinz, INPUT);
 }
 
 void loop() {
@@ -31,6 +43,9 @@ if (confirm==HIGH){
   ampere = analogRead(amperepin);
   power = analogRead(powerpin);
   pf = analogRead(pfpin);
+  voltage=analogRead(voltagepin);
+  temp=analogRead(temppin);
+  
 
 
   Serial.println(suction);
