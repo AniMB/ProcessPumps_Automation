@@ -52,15 +52,15 @@ if (confirm==HIGH){
   
 
   Serial.println(rpm);
-  Serial.println(",")  
+  Serial.println(",");
   Serial.println(suction);
-  Serial.println(",")
+  Serial.println(",");
   Serial.println(delivery);
-  Serial.println(",")
+  Serial.println(",");
   Serial.println(flow);
-  Serial.println(",")
+  Serial.println(",");
   Serial.println(ampere);
-  Serial.println(",")
+  Serial.println(",");
   Serial.println(power);
   Serial.println(",");
   Serial.println(pf);
