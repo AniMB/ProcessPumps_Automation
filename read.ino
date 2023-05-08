@@ -45,9 +45,14 @@ if (confirm==HIGH){
   pf = analogRead(pfpin);
   voltage=analogRead(voltagepin);
   temp=analogRead(temppin);
+  rpm=analogRead(rpmpin);
+  vibx=analogRead(vibxpin);
+  viby=analogRead(vibypin);
+  vibz=analogRead(vibypin);
   
 
-
+  Serial.println(rpm);
+  Serial.println(",")  
   Serial.println(suction);
   Serial.println(",")
   Serial.println(delivery);
@@ -57,9 +62,24 @@ if (confirm==HIGH){
   Serial.println(ampere);
   Serial.println(",")
   Serial.println(power);
-  Serial.println(",")
+  Serial.println(",");
   Serial.println(pf);
-
+  Serial.println(",");
+  Serial.println(voltage);
+  Serial.println(",");
+  Serial.println(temp);
+  Serial.println(",");
+  Serial.println(vibx);
+  Serial.println(",");
+  Serial.println(viby);
+  Serial.println(",");
+  Serial.println(vibz);
+  
+    
+    
+    
+    
+    
   delay(1000);
   }
   
