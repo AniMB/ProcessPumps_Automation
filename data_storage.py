@@ -6,7 +6,7 @@ import formulas
 
 
 
-arduino_port = input("Enter the name of the arduino port(read it from srduino IDE)")
+arduino_port = input("Enter the name of the arduino port(read it from arduino IDE)")
 baud = 9600
 
 ser = serial.Serial(arduino_port, baud)
@@ -42,6 +42,7 @@ def total_head(x,y,z):
 for i in inputted_si:
         rated.append(formulas.ratedp(i[0],value['rpm_'],i[1]))
         rated.append(formulas.ratedh(i[0],value['rpm_'],total_head(i[1],i[2],value['guageHeight_'])))
-        rated.append(formulas.efficiency(rated[0],rated[1],value['Density_'],value['motorEffi_'],'rated power'))    #the rated power variable needs confirmation
+        rated.append(formulas.ratedp(i[0],value['rpm_'],(value['mototEffi_']*i[5])))
+        rated.append(formulas.efficiency(rated[0],rated[1],value['Density_'],value['motorEffi_'],i[5])) 
                
 graph.grapher(inputted_si,value['guageHeight_'])  
