@@ -185,6 +185,7 @@ def data_entry():
     for widget in motor_frame.winfo_children():    
         widget.grid_configure( pady=1)
         
+        
     #RPM input
     '''rpm_frame=tkinter.LabelFrame(frame, text="RPM values")
     rpm_frame.grid(row=4, column=0,sticky='ew')
@@ -218,7 +219,22 @@ def data_entry():
     #Additional  values
     additional_frame=tkinter.LabelFrame(frame, text="Initial Values")
     additional_frame.grid(row=4, column=0,sticky='ew')
-
+    
+    vibx_label=tkinter.Label(additional_frame,text='Vibration X')
+    vibx_label.grid(row=0,column=0)
+    vibx=tkinter.Entry(additional_frame)
+    vibx.grid(row=0, column=1)
+    
+    viby_label=tkinter.Label(additional_frame,text='Vibration Y')
+    viby_label.grid(row=1,column=0)
+    viby=tkinter.Entry(additional_frame)
+    viby.grid(row=1, column=1)
+    
+    vibz_label=tkinter.Label(additional_frame,text='Vibration Z')
+    vibz_label.grid(row=2,column=0)
+    vibz=tkinter.Entry(additional_frame)
+    vibz.grid(row=2, column=1)
+# Add the vibraion values here and in funcion 'enter_data'
 
     #Enter Data into system
     def enter_data():
@@ -247,6 +263,9 @@ def data_entry():
         rpm3_=rpm3.get()
         rpm4_=rpm4.get()
         rpm5_=rpm5.get()'''
+        vibx_=vibx.get()
+        viby_=viby.get()
+        vibz_=vibz.get()
         dict=vars()
         
                 
@@ -283,4 +302,4 @@ def data_entry():
 
 
     return overall
-data_entry()
+print(data_entry())
