@@ -8,12 +8,10 @@ int buttonpin=9;
 int voltagepin=A6;
 int rpmpin=A7;
 int temppin=A8;
-int vibpinx=A9;
-int vibpiny=A10;
-int vibpinz=A11;
 
+// try getting the value of temperature with time
 
-int suction, delivery, flow, ampere, power, pf, voltage, temp, rpm, vibx, viby, vibz ;  // variable to store the value coming from the sensor
+int suction, delivery, flow, ampere, power, pf, voltage, temp, rpm ;  // variable to store the value coming from the sensor
 int confirm=0;
 
 void setup() {
@@ -25,12 +23,10 @@ void setup() {
   pinMode(amperepin, INPUT);
   pinMode(powerpin, INPUT);
   pinMode(pfpin, INPUT);
-  pinMode(buttonpin, Input)
+  pinMode(buttonpin, INPUT);
   pinMode(voltagepin, INPUT);
   pinMode(rpmpin, INPUT);
-  pinMode(vibpinx, INPUT);
-  pinMode(vibpiny, INPUT);
-  pinMode(vibpinz, INPUT);
+  
 }
 
 void loop() {
@@ -46,9 +42,7 @@ if (confirm==HIGH){
   voltage=analogRead(voltagepin);
   temp=analogRead(temppin);
   rpm=analogRead(rpmpin);
-  vibx=analogRead(vibxpin);
-  viby=analogRead(vibypin);
-  vibz=analogRead(vibypin);
+  
   
 
   Serial.println(rpm);
@@ -68,14 +62,8 @@ if (confirm==HIGH){
   Serial.println(voltage);
   Serial.println(",");
   Serial.println(temp);
-  Serial.println(",");
-  Serial.println(vibx);
-  Serial.println(",");
-  Serial.println(viby);
-  Serial.println(",");
-  Serial.println(vibz);
+ 
   
-    
     
     
     
