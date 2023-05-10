@@ -1,4 +1,4 @@
-def grapher(data,gh):
+def grapher(data):
     import matplotlib.pyplot as plt
     from matplotlib import style
     
@@ -8,10 +8,13 @@ def grapher(data,gh):
     y2=[]
     y3=[]
     fig, ax=plt.subplots()
+    fig.subplots_adjust(left=0.25)
     
     ax1=ax.twinx()
     ax2=ax.twinx()
-    ax1.spines.left.set_position(('axes',1.5 ))
+    ax1.spines["left"].set_position(("axes", -0.2))
+    ax1.yaxis.tick_left()
+    ax1.yaxis.set_label_position("left")
     
     for i in data:
         
@@ -40,3 +43,4 @@ def grapher(data,gh):
     plt.grid(True, color='w')
     plt.show()
 # refer to this'https://matplotlib.org/3.4.3/gallery/ticks_and_spines/multiple_yaxis_with_spines.html'
+# and https://stackoverflow.com/questions/58337823/matplotlib-how-to-display-and-position-2-yaxis-both-on-the-left-side-of-my-grap
