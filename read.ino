@@ -13,7 +13,7 @@ int temppin=A8;
 
 int suction, delivery, flow, ampere, power, pf, voltage, temp, rpm ;  // variable to store the value coming from the sensor
 int confirm=0;
-
+long int t1, t2;
 void setup() {
   // declare the ledPin as an OUTPUT:
   Serial.begin(9600);
@@ -26,7 +26,7 @@ void setup() {
   pinMode(buttonpin, INPUT);
   pinMode(voltagepin, INPUT);
   pinMode(rpmpin, INPUT);
-  
+  t1=millis()
 }
 
 void loop() {
@@ -70,5 +70,8 @@ if (confirm==HIGH){
     
   delay(1000);
   }
+  t2=millis()
+ if ((t2-t1)%15==0){
+   Serial.println('Time at temp');Serial.println(t2-t1);Serial.println('is:');Serial.println(analogRead(temppin));
   
 }
