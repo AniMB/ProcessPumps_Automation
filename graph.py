@@ -2,7 +2,7 @@ def grapher(data):
     import matplotlib.pyplot as plt
     from matplotlib import style
     
-    style.use('ggplot') # set plot style
+    
     x1=[]
     y1=[]
     y2=[]
@@ -19,9 +19,9 @@ def grapher(data):
     
     for i in data:
         
-        x = i[1]  
+        x = i[0]  
         x1.append(x)
-        y = i[0]
+        y = i[1]
         y1.append(y)
         y_=i[2]
         y2.append(y_)
@@ -41,7 +41,7 @@ def grapher(data):
     
     ax.legend(handles=[p1, p2, p3])
     
-    plt.grid(True, color='w')
+    plt.grid(True, color='#000')
     plt.show()
 # refer to this'https://matplotlib.org/3.4.3/gallery/ticks_and_spines/multiple_yaxis_with_spines.html'
 # and https://stackoverflow.com/questions/58337823/matplotlib-how-to-display-and-position-2-yaxis-both-on-the-left-side-of-my-grap
