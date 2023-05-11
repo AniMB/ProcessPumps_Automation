@@ -30,12 +30,12 @@ for i in entered_data:
         else:
                 break
 
-inputted_si=[]
+inputted_si=inputted
 for i in inputted:
         suction=formulas.bar_to_m_h2o(i[1])
         delivery=formulas.bar_to_m_h2o(i[2])
-        inputted_si.append(suction)
-        inputted_si.append(delivery)
+        suction=inputted_si[1]
+        delivery=inputted_si[2]
 rated=[]
 def total_head(x,y,z):
         return lambda x,y,z:x+y+z
@@ -45,4 +45,4 @@ for i in inputted_si:
         rated.append(formulas.ratedp(i[0],value['rpm_'],(value['mototEffi_']*i[5])))
         rated.append(formulas.efficiency(rated[0],rated[1],value['Density_'],value['motorEffi_'],i[5])) 
                
-graph.grapher(rated,value['guageHeight_'])  
+graph.grapher(rated)  
