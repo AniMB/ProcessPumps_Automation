@@ -12,9 +12,9 @@ def grapher(data):
     
     ax1=ax.twinx()
     ax2=ax.twinx()
-    ax1.spines["left"].set_position(("axes", -0.2))
-    ax1.yaxis.tick_left()
-    ax1.yaxis.set_label_position("left")
+    ax2.spines["left"].set_position(("axes", -0.2))
+    ax2.yaxis.tick_left()
+    ax2.yaxis.set_label_position("left")
     
     for i in data:
         
