@@ -15,6 +15,7 @@ def grapher(data):
     ax2.spines["left"].set_position(("axes", -0.2))
     ax2.yaxis.tick_left()
     ax2.yaxis.set_label_position("left")
+    ax2.spines["left"].set_visible(True)
     
     for i in data:
         
