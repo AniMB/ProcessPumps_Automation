@@ -1,3 +1,4 @@
+
 from openpyxl import Workbook,load_workbook
 wb = load_workbook(filename='mypractsheet.xlsx')
 ws= wb.active
@@ -11,8 +12,12 @@ l=type(data)
 print(l)
 '''
 
-for record in [[k]+v for k,v in data.items()]:
-    ws.append(record)
+keysList = list(data.keys())
+print(keysList)
+keysList1=tuple(keysList)
+ws.append(keysList1)
 
 wb.save('mypractsheet.xlsx')
+wb.close()
+'''
 
