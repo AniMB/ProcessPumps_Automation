@@ -29,8 +29,8 @@ def grapher(data):
         y2.append(float(y_))
         y__=i[3]
         y3.append(float(y__))
-    print(y1)
-    X_ = np.linspace(min(x1), max(x1), 500)
+    
+    X_ = np.linspace(min(x1), max(x1), 10000)
     # for head and capacity
     X_Y1_Spline = make_interp_spline(x1, y1)
     
@@ -58,6 +58,7 @@ def grapher(data):
     ax2.set_ylim(0, (max(y3)*1.1))
     
     
+    
     ax.set_xlabel('Capacity')
     ax.set_ylabel('Head')
     ax1.set_ylabel('Power')
@@ -65,8 +66,33 @@ def grapher(data):
     
     
     ax.legend(handles=[p1, p2, p3])
+    def map_range(value, old_min, old_max, new_min, new_max):
     
-    plt.grid(True, color='#000')
+    # Maps a value from the old range [old_min, old_max] to the new range [new_min, new_max]
+    
+        old_range = old_max - old_min
+        new_range = new_max - new_min
+        scaled_value = (value - old_min) / old_range
+        return new_min + (scaled_value * new_range)
+
+
+    def onclick(event,x1,y3):
+                   
+        duty_point_x= event.xdata
+        duty_point_y=event.ydata
+        ax.plot([duty_point_x,duty_point_x],[duty_point_y, 0], 'C8--')
+        plt.plot([duty_point_x, 0],[duty_point_y, duty_point_y], 'C8--')
+        ax.annotate(f'{map_range(duty_point_x,0, (max(y3)),0, (max(x1))):.2f}', xy=(duty_point_x, 0), xytext=(duty_point_x+0.5, 0.5), )
+        plt.annotate(f'{duty_point_y:.2f}', xy=(0, duty_point_y), xytext=(0.5, duty_point_y+0.5))
+        plt.scatter([duty_point_x], [duty_point_y], s=100)
+        plt.show()
+    
+    ax.figure.canvas.mpl_connect('button_press_event', lambda event :onclick(event, x1, y3))
+        
+        
+    
+    
+    plt.grid(True, color='#5F2D9A')
     plt.show()
     
 # refer to this'https://matplotlib.org/3.4.3/gallery/ticks_and_spines/multiple_yaxis_with_spines.html'
