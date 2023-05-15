@@ -4,8 +4,6 @@ import graph
 import gui
 import formulas 
 
-
-
 arduino_port = input("Enter the name of the arduino port(read it from arduino IDE)")
 baud = 9600
 
@@ -45,4 +43,11 @@ for i in inputted_si:
         rated.append(formulas.ratedp(i[0],value['rpm_'],(value['mototEffi_']*i[5])))
         rated.append(formulas.efficiency(rated[0],rated[1],value['Density_'],value['motorEffi_'],i[5])) 
                
-graph.grapher(rated)  
+final=inputted_si
+for k in final:
+        final[k].insert(1,inputted[k][1])
+        final[k].insert(3, inputted[k][2])
+        final[k].append(-1, (value['mototEffi_']*final[k][-1]))
+        final[k].extend(rated[k])
+               
+graph.grapher(rated, value['capacity_'], value['head_'])  
