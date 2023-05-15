@@ -81,12 +81,13 @@ def data_entry():
             label.configure(foreground='black')
             return True
         
-    guageHeight_label=tkinter.Label(initial_frame, text='height difference between the pressure guages')
+    guageHeight_label=tkinter.Label(initial_frame, text='Guage Distance')
     guageHeight_label.grid(row=0, column=0)
     guageHeight=tkinter.Entry(initial_frame, validate="focusout", validatecommand=(initial_frame.register(lambda val: on_validate(val, guageHeight_label)), '%P'))
     guageHeight.grid(row=0, column=1)
 
-    capacity_label=tkinter.Label(initial_frame, text=' capacity')
+   
+    capacity_label=tkinter.Label(initial_frame, text=' Capacity')
     capacity_label.grid(row=1, column=0)
     capacity=tkinter.Entry(initial_frame, validate="focusout", validatecommand=(initial_frame.register(lambda val: on_validate(val, capacity_label)), '%P'))
     capacity.grid(row=1, column=1)
@@ -121,6 +122,11 @@ def data_entry():
     motor_details=tkinter.Entry(initial_frame, validate="focusout", validatecommand=(initial_frame.register(lambda val: on_validate(val, motor_details_label)), '%P'))
     motor_details.grid(row=7, column=1)
 
+    head_label=tkinter.Label(initial_frame, text='Head')
+    head_label.grid(row=8, column=0)
+    head=tkinter.Entry(initial_frame, validate="focusout", validatecommand=(initial_frame.register(lambda val: on_validate(val, head_label)), '%P'))
+    head.grid(row=8, column=1)
+    
     for widget in initial_frame.winfo_children():    
         widget.grid_configure( pady=1)
 
@@ -249,6 +255,7 @@ def data_entry():
         effi_=effi.get()
         temp_=temp.get()
         bkw_=bkw.get()
+        head_=head.get()
         motor_details_=motor_details.get()
         make_=make.get()
         motor_slno_=motor_slno.get()
@@ -302,4 +309,4 @@ def data_entry():
 
 
     return overall
-print(data_entry())
+
