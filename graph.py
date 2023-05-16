@@ -1,4 +1,8 @@
 def grapher(data, capacity, head):
+    
+# Author: Animish Murthy
+# Date: 18/05/23
+
     import matplotlib.pyplot as plt
     from matplotlib import style
     import numpy as np
@@ -45,7 +49,9 @@ def grapher(data, capacity, head):
     X_Y3_Spline = make_interp_spline(x1, y3)
     Y3_ = X_Y3_Spline(X_)
     
-    
+# Author: Animish Murthy
+# Date: 18/05/23
+   
     ax.plot(X_, Y1_, 'g-')
     p1=ax.scatter(x1, y1, c='g', alpha=0.5, marker='o',label='Head') # type: ignore
     ax1.plot(X_,Y2_,'b-')
@@ -66,6 +72,8 @@ def grapher(data, capacity, head):
     ax1.set_ylabel('Power(kW)')
     ax2.set_ylabel('Efficiency(%)')
     
+# Author: Animish Murthy
+# Date: 18/05/23   
     
     handles = [p1, p2,p3,p4]
     labels = [p1.get_label(), p2.get_label(), p3.get_label(), p4.get_label()]
@@ -78,6 +86,52 @@ def grapher(data, capacity, head):
 # refer to this'https://matplotlib.org/3.4.3/gallery/ticks_and_spines/multiple_yaxis_with_spines.html'
 # and https://stackoverflow.com/questions/58337823/matplotlib-how-to-display-and-position-2-yaxis-both-on-the-left-side-of-my-grap
 # bottom limit should be zero for all
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Useless Code i didn't wanna waste cause I put in too much hardwork
     # def map_range(value, old_min, old_max, new_min, new_max):
