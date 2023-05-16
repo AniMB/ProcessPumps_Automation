@@ -1,4 +1,6 @@
 def data_entry():
+# Author: Animish Murthy
+# Date: 18/05/23
     import tkinter
 
     window=tkinter.Tk()
@@ -35,7 +37,8 @@ def data_entry():
     #Project info 
     project_frame=tkinter.LabelFrame(frame,text="PROJECT INFO")
     project_frame.grid(row=0, column=0,sticky='ew')
-
+# Author: Animish Murthy
+# Date: 18/05/23
 
 
     sl_no_label=tkinter.Label(project_frame, text='Sl. No')
@@ -67,9 +70,15 @@ def data_entry():
     for widget in project_frame.winfo_children():    
         widget.grid_configure( pady=1)
 
+
+
+
     #SET values
     initial_frame=tkinter.LabelFrame(frame, text="Initial pump operating Values")
     initial_frame.grid(row=1, column=0,sticky='ew')
+    
+# Author: Animish Murthy
+# Date: 18/05/23
 
     def on_validate(val, label):
         
@@ -131,9 +140,15 @@ def data_entry():
         widget.grid_configure( pady=1)
 
 
+
+
+
     #Testing motor details
     motor_frame=tkinter.LabelFrame(frame, text="Testing motor Values")
     motor_frame.grid(row=2, column=0, sticky='ew')
+    
+# Author: Animish Murthy
+# Date: 18/05/23
 
     make_label=tkinter.Label(motor_frame, text='Make')
     make_label.grid(row=0, column=0)
@@ -191,6 +206,10 @@ def data_entry():
     for widget in motor_frame.winfo_children():    
         widget.grid_configure( pady=1)
         
+    
+    
+    
+    
         
     #RPM input
     '''rpm_frame=tkinter.LabelFrame(frame, text="RPM values")
@@ -222,10 +241,19 @@ def data_entry():
     rpm5.grid(row=3, column=1 )
     for widget in rpm_frame.winfo_children():    
         widget.grid_configure( pady=1)'''
+        
+        
+        
+        
+        
+        
     #Additional  values
     additional_frame=tkinter.LabelFrame(frame, text="Initial Values")
     additional_frame.grid(row=4, column=0,sticky='ew')
     
+# Author: Animish Murthy
+# Date: 18/05/23  
+
     vibx_label=tkinter.Label(additional_frame,text='Vibration X')
     vibx_label.grid(row=0,column=0)
     vibx=tkinter.Entry(additional_frame)
@@ -240,13 +268,18 @@ def data_entry():
     vibz_label.grid(row=2,column=0)
     vibz=tkinter.Entry(additional_frame)
     vibz.grid(row=2, column=1)
-# Add the vibraion values here and in funcion 'enter_data'
+    # Add the vibraion values here and in funcion 'enter_data'
+
+
+
+
 
     #Enter Data into system
     def enter_data():
         sl_no_=sl_no.get()
         model_=model.get()
         impeller_=impeller.get()
+        mechSeal_=mechSeal.get()
         special_=special.get()
         guageHeight_=guageHeight.get()
         capacity_=capacity.get()
@@ -273,40 +306,58 @@ def data_entry():
         vibx_=vibx.get()
         viby_=viby.get()
         vibz_=vibz.get()
-        dict=vars()
+        dictionary = {
+        'sl_no_': sl_no_,
+        'model_': model_,
+        'impeller_': impeller_,
+        'mechSeal_': mechSeal_,
+        'special_': special_,
+        'guageHeight_': guageHeight_,
+        'capacity_': capacity_,
+        'Liquid_': Liquid_,
+        'Density_': Density_,
+        'effi_': effi_,
+        'temp_': temp_,
+        'bkw_': bkw_,
+        'head_': head_,
+        'motor_details_': motor_details_,
+        'make_': make_,
+        'motor_slno_': motor_slno_,
+        'frameSize_': frameSize_,
+        'rpm_': rpm_,
+        'ratedAmp_': ratedAmp_,
+        'motorEffi_': motorEffi_,
+        'Customer_Name_': projectName,
+        'customer_WO_': customer_WO_,
+        'vibx_': vibx_,
+        'viby_': viby_,
+        'vibz_': vibz_
+        }
+
         
                 
-        return dict
-    def endWindow():
-        window.quit()     
+        return dictionary
+      
 
     def exit_call():
         enter_data()
-        endWindow()
-
-
+        window.quit()
+        
+        
+# Author: Animish Murthy
+# Date: 18/05/23
+     
     data_entry_button=tkinter.Button(frame, text="Enter data into System", command=exit_call)
     data_entry_button.grid(row=5, column=0,  pady=10, sticky='news')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    overall=enter_data()      
+    
+    
+         
             
     window.mainloop()
+    return enter_data()
+    
+# Author: Animish Murthy
+# Date: 18/05/23
 
-
-    return overall
+    
 
