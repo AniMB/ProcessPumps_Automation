@@ -8,24 +8,25 @@ import graph
 import gui
 import formulas 
 
-# arduino_port = input("Enter the name of the arduino port(read it from arduino IDE)")
-# baud = 9600
+arduino_port = input("Enter the name of the arduino port(read it from arduino IDE)")
+baud = 9600
 
-# ser = serial.Serial(arduino_port, baud)
-# print("Connected to Arduino port:" + arduino_port)
+ser = serial.Serial(arduino_port, baud)
+print("Connected to Arduino port:" + arduino_port)
 
 
 # Author: Animish Murthy
 # Date: 18/05/23
-ser= [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-        [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34],
-        [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51]]
-inputted=ser
-# for i in range(5):
-#         getData = ser.readline()
-#         datastring = getData.decode('utf-8')
-#         datastring=datastring.split(',')
-#         inputted.append(datastring)
+# ser= [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+#         [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34],
+#         [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51]]
+#inputted=ser
+inputted=[]
+for i in range(5):
+        getData = ser.readline()
+        datastring = getData.decode('utf-8')
+        datastring=datastring.split(',')
+        inputted.append(datastring)
         
 
 value=gui.data_entry()
