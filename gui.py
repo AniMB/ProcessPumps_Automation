@@ -89,7 +89,12 @@ def data_entry():
         else:
             label.configure(foreground='black')
             return True
-        
+        def validate_integer(val,label):
+            if val.isdigit() or (val.startswith('-') and val[1:].isdigit()):
+                return True
+            else:
+                label.configure(foreground='blue')
+                return False
     guageHeight_label=tkinter.Label(initial_frame, text='Guage Distance')
     guageHeight_label.grid(row=0, column=0)
     guageHeight=tkinter.Entry(initial_frame, validate="focusout", validatecommand=(initial_frame.register(lambda val: on_validate(val, guageHeight_label)), '%P'))
@@ -271,22 +276,31 @@ def data_entry():
     # Add the vibraion values here and in funcion 'enter_data'
 
 
-
-
+    def integer(value):
+        try:
+                integer_value = int(value)
+                return integer_value
+        except ValueError:
+            print("Invalid integer")
 
     #Enter Data into system
     def enter_data():
-        sl_no_=sl_no.get()
+        sl_no_=sl_no.get() 
         model_=model.get()
         impeller_=impeller.get()
         mechSeal_=mechSeal.get()
         special_=special.get()
         guageHeight_=guageHeight.get()
+        integer(guageHeight_)
         capacity_=capacity.get()
+        integer(capacity_)
         Liquid_=Liquid.get()
         Density_=Density.get()
+        integer(Density_)
         effi_=effi.get()
+        integer(effi_)
         temp_=temp.get()
+        integer(temp_)
         bkw_=bkw.get()
         head_=head.get()
         motor_details_=motor_details.get()
@@ -294,8 +308,10 @@ def data_entry():
         motor_slno_=motor_slno.get()
         frameSize_=frameSize.get()
         rpm_=rpm.get()
+        integer(rpm_)
         ratedAmp_=ratedAmp.get()
         motorEffi_=motorEffi.get()
+        integer(motorEffi_)
         projectName = proj_name.get()
         customer_WO_=customer_WO.get()
         '''rpm1_=rpm1.get()
@@ -306,6 +322,7 @@ def data_entry():
         vibx_=vibx.get()
         viby_=viby.get()
         vibz_=vibz.get()
+        
         dictionary = {
         'sl_no_': sl_no_,
         'model_': model_,
