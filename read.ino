@@ -9,7 +9,8 @@ int voltagepin=A6;
 int rpmpin=A7;
 int temppin=A8;
 
-// try getting the value of temperature with time
+// Author: Animish Murthy
+// Date: 18/05/23
 
 int suction, delivery, flow, ampere, power, pf, voltage, temp, rpm ;  // variable to store the value coming from the sensor
 int confirm=0;
@@ -43,7 +44,8 @@ if (confirm==HIGH){
   temp=analogRead(temppin);
   rpm=analogRead(rpmpin);
   
-  
+  // Author: Animish Murthy
+// Date: 18/05/23
 
   Serial.print(rpm);
   Serial.print(",");
@@ -76,3 +78,5 @@ if (confirm==HIGH){
    Serial.print('Time at temp');Serial.print(t2-t1);Serial.print('is:');Serial.print(analogRead(temppin));
   
 }
+// Author: Animish Murthy
+// Date: 18/05/23
