@@ -9,6 +9,8 @@ int voltagepin=A6;
 int rpmpin=A7;
 int temppin=A8;
 
+
+
 // Author: Animish Murthy
 // Date: 18/05/23
 
@@ -27,7 +29,7 @@ void setup() {
   pinMode(buttonpin, INPUT);
   pinMode(voltagepin, INPUT);
   pinMode(rpmpin, INPUT);
-  t1=millis();
+  
 }
 
 void loop() {
@@ -73,10 +75,8 @@ if (confirm==HIGH){
     
   delay(1000);
   }
-  t2=millis();
- if ((t2-t1)%15==0){
-   Serial.print('Time at temp');Serial.print(t2-t1);Serial.print('is:');Serial.print(analogRead(temppin));
-  
+
+
 }
 // Author: Animish Murthy
 // Date: 18/05/23
