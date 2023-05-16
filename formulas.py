@@ -2,6 +2,9 @@ def bar_to_m_h2o(bar):
     m=bar*10
     return m
 
+# Author: Animish Murthy
+# Date: 18/05/23
+
 def efficiency(h,q,sg,eta,p):
     effi=(h*q*sg)/(367*eta*p)
     return effi
@@ -18,3 +21,5 @@ def ratedp(n1,n2,p1):
     p2=((n2/n1)**3)*p1
     return p2
 
+# Author: Animish Murthy
+# Date: 18/05/23
