@@ -7,6 +7,7 @@ import csv
 import graph
 import gui
 import formulas 
+import excel
 
 arduino_port = input("Enter the name of the arduino port(read it from arduino IDE)")
 baud = 9600
@@ -67,3 +68,12 @@ for k, item in enumerate(final):
 
                
 graph.grapher(rated, value['capacity_'], value['head_'])  
+
+excel.excel_file(final)
+
+
+
+#        /\ \     / /\  
+#       /__\ \   / /__\
+#      /    \ \ / /    \
+          
