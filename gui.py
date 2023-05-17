@@ -39,7 +39,10 @@ def data_entry():
     project_frame.grid(row=0, column=0,sticky='ew')
 # Author: Animish Murthy
 # Date: 18/05/23
-
+    type_label=tkinter.Label(project_frame, text='Type')
+    type_label.grid(row=0, column=0)
+    type=tkinter.Entry(project_frame)
+    type.grid(row=0, column=1)
 
     sl_no_label=tkinter.Label(project_frame, text='Sl. No')
     sl_no_label.grid(row=2, column=0)
@@ -285,6 +288,7 @@ def data_entry():
 
     #Enter Data into system
     def enter_data():
+        type_=type.get()
         sl_no_=sl_no.get() 
         model_=model.get()
         impeller_=impeller.get()
@@ -324,6 +328,7 @@ def data_entry():
         vibz_=vibz.get()
         
         dictionary = {
+        'type_':type_,
         'sl_no_': sl_no_,
         'model_': model_,
         'impeller_': impeller_,
@@ -376,5 +381,5 @@ def data_entry():
 # Author: Animish Murthy
 # Date: 18/05/23
 
-    
+
 
