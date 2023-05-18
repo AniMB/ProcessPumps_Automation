@@ -66,10 +66,11 @@ for k, item in enumerate(final):
     print(type(rated[k]))
     final[k].extend(rated[k])
 
-               
-graph.grapher(rated, value['capacity_'], value['head_'])  
 
 excel.excel_file(final)
+graph.grapher(rated, value['capacity_'], value['head_'])  
+
+
 
 
 #         
