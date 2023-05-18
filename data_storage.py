@@ -72,8 +72,8 @@ graph.grapher(rated, value['capacity_'], value['head_'])
 excel.excel_file(final)
 
 
-
-#        /\ \     / /\  
-#       /__\ \   / /__\
-#      /    \ \ / /    \
+#         
+#        /\ \    / /\  
+#       /__\ \  / /__\
+#      /    \ \/ /    \
           
