@@ -1,5 +1,7 @@
 def grapher(data, capacity, head):
-    
+# this code plots the graph of the rated values
+
+
 # Author: Animish Murthy
 # Date: 18/05/23
 
@@ -7,7 +9,7 @@ def grapher(data, capacity, head):
     from matplotlib import style
     import numpy as np
     from scipy.interpolate import make_interp_spline
-    # this code plots the graph of the rated values
+    
     
     #Sets the initial subplots and creates the twin axes while shifting one a bit further away to have 3 y-axes in total
     x1=[]
@@ -89,12 +91,14 @@ def grapher(data, capacity, head):
     plt.grid(True, color='#5F2D9A')
     plt.show()
     
-
-    
+#         
+#        /\ \    / /\  
+#       /__\ \  / /__\
+#      /    \ \/ /    \    
     
 
 #Useless Code i didn't wanna waste cause I put in too much hardwork
-# it will show the value of the point you have clicked on
+# it will show the value of the point you have clicked on and then additonally maps it out with with respect to another range
     # def map_range(value, old_min, old_max, new_min, new_max):
     
     # # Maps a value from the old range [old_min, old_max] to the new range [new_min, new_max]
