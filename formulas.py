@@ -17,9 +17,15 @@ def ratedh(n1,n2,h1):  # Calculates the proportionate head with respect to the R
     h2=((n2/n1)**2)*h1
     return h2
 
+# Author: Animish Murthy
+# Date: 18/05/23
+
 def ratedp(n1,n2,p1):  # Calculates the proportionate power with respect to the RPM
     p2=((n2/n1)**3)*p1
     return p2
 
-# Author: Animish Murthy
-# Date: 18/05/23
+
+#         
+#        /\ \    / /\  
+#       /__\ \  / /__\
+#      /    \ \/ /    \
