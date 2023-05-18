@@ -4,9 +4,18 @@ def excel_file(table_data):
     from openpyxl.styles import  Border, Side, Alignment,  Font
     import gui
     import datetime
+    import os
+    
+    
     wb= Workbook()
     ws=wb.active
+    
+   
+    
 
+    
+    
+    
     def wrap_text(cell_range):
         wrap_alignment = Alignment(wrap_text=True, horizontal='center', vertical='center')
         for row in cell_range:
@@ -35,10 +44,10 @@ def excel_file(table_data):
     #increasing width of cells so data can fit in in
     ws.column_dimensions['A'].width = 10
     ws.column_dimensions['B'].width = 10
-    ws.column_dimensions['E'].width = 15
+    ws.column_dimensions['E'].width = 13
     ws.column_dimensions['F'].width = 15
-    ws.column_dimensions['J'].width = 16
-    ws.column_dimensions['K'].width = 15
+    ws.column_dimensions['I'].width = 16
+    ws.column_dimensions['J'].width = 10
 
 
     #gui={'val1': 40, 'val2': 'l', 'val3': 'jk' , 'val4': 'tytyyt'}
@@ -123,7 +132,7 @@ def excel_file(table_data):
         row+= 1
 
     #giving borders to data in table 2
-    range=ws['E4':'G11']
+    range=ws['E4':'F11']
     for cell in range:
         for x in cell:
             x.border=thick_border1
@@ -132,15 +141,15 @@ def excel_file(table_data):
 
 
     #TABLE 3 HEADER
-    cell = ws.cell(row=3,column=10)
-    ws.merge_cells('J3:K3')
+    cell = ws.cell(row=3,column=9)
+    ws.merge_cells('I3:J3')
     cell.value = 'TESTING MOTOR DETAILS'
     cell. alignment = Alignment(horizontal='center', vertical='center')
-    range=ws['J3':'K3']
+    range=ws['I3':'J3']
     for cell in range:
         for x in cell:
             x.border=thick_border1
-    wrap_text(ws['J4:J11'])
+    wrap_text(ws['I4:I11'])
     #Abdhishay Murthy Nandula
         #16/05/2023
         
@@ -149,12 +158,12 @@ def excel_file(table_data):
     third=print_between_keys(value,'make_','customer_WO_')
     row=4
     for i in third:
-        ws.cell(row=row, column=10, value=i[0])
-        ws.cell(row=row, column=11, value=i[1])
+        ws.cell(row=row, column=9, value=i[0])
+        ws.cell(row=row, column=10, value=i[1])
         row += 1
 
     #giving borders to data in table 3
-    range=ws['J4':'K11']
+    range=ws['I4':'J11']
     for cell in range:
         for x in cell:
             x.border=thick_border1
@@ -229,20 +238,22 @@ def excel_file(table_data):
    
    
     # SETTING THE DATE AS WELL AS A SPACE FOR START AND END TIME
-    cell = ws.cell(row=4,column=14)
+    cell = ws.cell(row=9,column=13)
     cell.value = 'DATE'
-    cell2 = ws.cell(row=4,column=15)
+    cell2 = ws.cell(row=9,column=14)
     cell2.value = str(datetime.date.today())
     ws.column_dimensions["N"].width = 14
+    ws.column_dimensions["M"].width = 12
+    
 
-    range=ws['N4':'O6']
+    range=ws['M9':'N11']
     for cell in range:
         for x in cell:
             x.border=thick_border1
 
-    cell3 = ws.cell(row=5,column=14)
+    cell3 = ws.cell(row=10,column=13)
     cell3.value = 'Started at : '
-    cell4 = ws.cell(row=6,column=14)
+    cell4 = ws.cell(row=11,column=13)
     cell4.value = 'Stopped at : '
 
 
@@ -256,42 +267,53 @@ def excel_file(table_data):
     # cell7=ws.cell(row=4,column=18)
     # cell7.value = 'Vibration (rms-velocity)'
 
-    print_between_keys(value,'vibx_','vibz_')
+    #PRINTING DATA FOR VIBRATION
+    fifth=print_between_keys(value,'vibx_','vibz_')
     row=4
-    for i in second:
-        ws.cell(row=row, column=18, value=i[0])
-        ws.cell(row=row, column=18, value=i[1])
+    for i in fifth:
+        ws.cell(row=row, column=13, value=i[0])
+        ws.cell(row=row, column=14, value=i[1])
         row+= 1
+    ws.merge_cells('M3:N3')
+    vibheader=ws.cell(row=3,column=13)
+    vibheader.value='Vibration'
+    vibheader.alignment = Alignment(horizontal='center', vertical='center')
+    
 
 
-
-    range=ws['P4':'Q7']
+    range=ws['M3':'N6']
     for cell in range:
         for x in cell:
             x.border=thick_border1
 
 
-    #PRINTING DATA FOR VIBRATION
-    fifth=print_between_keys(value,'make_','customer_WO_')
-    row=6
-    for i in fifth:
-        ws.cell(row=row, column=17, value=i[0])
-        ws.cell(row=row, column=17, value=i[1])
-        row += 1
+    
 
     #APPROVAL
-    cell8 = ws.cell(row=4,column=20)
+    cell8 = ws.cell(row=7,column=17)
     cell8.value = 'TESTED BY : '
-    cell9 = ws.cell(row=5,column=20)
+    cell9 = ws.cell(row=8,column=17)
     cell9.value = 'WITNESSED BY : '
-
-
-    range=ws['S4':'U5']
+    wrap_text(ws['Q7':'Q8'])
+    ws.column_dimensions["Q"].width = 15
+    
+    range=ws['Q7':'R8']
     for cell in range:
         for x in cell:
             x.border=thick_border1
+    
+     # Create a new folder using the current date and time
+    now = datetime.datetime.now()
+    folder_name = now.strftime(f"%d-%m-%Y{value['Customer_Name_']}_{value['customer_WO_']}")
+
+    primary_folder_path = os.path.join(f'{os.getcwd()}', 'projects')
+    folder_path = os.path.join(primary_folder_path, folder_name)
+    os.makedirs(folder_path, exist_ok=True)
+
+    # Save the workbook to the new folder
+    wb.save(os.path.join(folder_path, f"{value['Customer_Name_']}.xlsx"))
             
-    wb.save(f"{value['Customer_Name_']}.xlsx")
+   
     wb.close()
 
 
