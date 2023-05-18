@@ -1,4 +1,6 @@
 def data_entry():
+    # this created the GUI and returns the entries
+    
 # Author: Animish Murthy
 # Date: 18/05/23
     import tkinter
@@ -69,7 +71,8 @@ def data_entry():
     special_label.grid(row=7, column=0)
     special=tkinter.Entry(project_frame)
     special.grid(row=7, column=1)
-
+    
+    #provided the padding
     for widget in project_frame.winfo_children():    
         widget.grid_configure( pady=1)
 
@@ -83,7 +86,7 @@ def data_entry():
 # Author: Animish Murthy
 # Date: 18/05/23
 
-    def on_validate(val, label):
+    def on_validate(val, label):              #checks if any value is entered or not. If ot, it will make the field red and beep
         
         if val.strip() == "":
             initial_frame.bell()  # produces a beep sound to alert the user
@@ -92,12 +95,14 @@ def data_entry():
         else:
             label.configure(foreground='black')
             return True
-        def validate_integer(val,label):
+       
+        def validate_integer(val,label):          # checks if the values are pure integers or not
             if val.isdigit() or (val.startswith('-') and val[1:].isdigit()):
                 return True
             else:
                 label.configure(foreground='blue')
                 return False
+            
     guageHeight_label=tkinter.Label(initial_frame, text='Guage Distance')
     guageHeight_label.grid(row=0, column=0)
     guageHeight=tkinter.Entry(initial_frame, validate="focusout", validatecommand=(initial_frame.register(lambda val: on_validate(val, guageHeight_label)), '%P'))
@@ -144,13 +149,14 @@ def data_entry():
     head=tkinter.Entry(initial_frame, validate="focusout", validatecommand=(initial_frame.register(lambda val: on_validate(val, head_label)), '%P'))
     head.grid(row=8, column=1)
     
+    #provided padding
     for widget in initial_frame.winfo_children():    
         widget.grid_configure( pady=1)
 
 
-
-
-
+        
+        
+        
     #Testing motor details
     motor_frame=tkinter.LabelFrame(frame, text="Testing motor Values")
     motor_frame.grid(row=2, column=0, sticky='ew')
@@ -195,8 +201,8 @@ def data_entry():
     proj_name=tkinter.Entry(motor_frame)
     proj_name.grid(row=6, column=1)
 
-
-    def check_entry():
+    
+    def check_entry():                            # checks if any entry is present on pressing the confirm button
         projectName = proj_name.get()
         if projectName == '':
             return None
@@ -211,6 +217,7 @@ def data_entry():
     customer_WO=tkinter.Entry(motor_frame)
     customer_WO.grid(row=7, column=1)
 
+    #provides padding
     for widget in motor_frame.winfo_children():    
         widget.grid_configure( pady=1)
         
@@ -218,8 +225,8 @@ def data_entry():
     
     
     
-        
-    #RPM input
+     # this part can be made usable if required. Howver some changes must be made to the code   
+    #RPM input                     
     '''rpm_frame=tkinter.LabelFrame(frame, text="RPM values")
     rpm_frame.grid(row=4, column=0,sticky='ew')
 
@@ -279,14 +286,14 @@ def data_entry():
     # Add the vibraion values here and in funcion 'enter_data'
 
 
-    def integer(value):
+    def integer(value):               # returns only integer values
         try:
                 integer_value = int(value)
                 return integer_value
         except ValueError:
             print("Invalid integer")
 
-    #Enter Data into system
+    #Enters Data into system
     def enter_data():
         type_=type.get()
         sl_no_=sl_no.get() 
@@ -318,14 +325,19 @@ def data_entry():
         integer(motorEffi_)
         projectName = proj_name.get()
         customer_WO_=customer_WO.get()
-        '''rpm1_=rpm1.get()
+        vibx_=vibx.get()
+        viby_=viby.get()
+        vibz_=vibz.get()
+        
+        # this code can be used if RPM is in picture and the values shoulb be added to the dictionary
+        '''rpm1_=rpm1.get()           
         rpm2_=rpm2.get()
         rpm3_=rpm3.get()
         rpm4_=rpm4.get()
         rpm5_=rpm5.get()'''
-        vibx_=vibx.get()
-        viby_=viby.get()
-        vibz_=vibz.get()
+        
+        
+        
         
         dictionary = {
         'type_':type_,
@@ -361,7 +373,7 @@ def data_entry():
         return dictionary
       
 
-    def exit_call():
+    def exit_call():                                   #enters data into functiona and then ends the function
         enter_data()
         window.quit()
         
@@ -369,6 +381,7 @@ def data_entry():
 # Author: Animish Murthy
 # Date: 18/05/23
      
+    #the button that executes  it all
     data_entry_button=tkinter.Button(frame, text="Enter data into System", command=exit_call)
     data_entry_button.grid(row=5, column=0,  pady=10, sticky='news')
     
