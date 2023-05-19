@@ -1,5 +1,7 @@
-# Author: Animish Murthy
-# Date: 18/05/23
+#         
+#        /\ \    / /\  
+#       /__\ \  / /__\
+#      /    \ \/ /    \
 
 # This is the main file that shall be run. It calls all the rest of the modules
 import serial
@@ -72,9 +74,7 @@ for k, item in enumerate(final):
 excel.excel_file(final)
 graph.grapher(rated, value['capacity_'], value['head_'])  
 
+# Author: Animish Murthy
+# Date: 18/05/23
 
-#         
-#        /\ \    / /\  
-#       /__\ \  / /__\
-#      /    \ \/ /    \
           
