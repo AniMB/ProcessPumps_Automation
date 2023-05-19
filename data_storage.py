@@ -1,7 +1,8 @@
-# Author: Animish Murthy
-# Date: 18/05/23
+#        /\ \    / /\  
+#       /__\ \  / /__\
+#      /    \ \/ /    \
 
-
+# This is the main file that shall be run. It calls all the rest of the modules
 import serial
 import csv
 import graph
@@ -9,6 +10,7 @@ import gui
 import formulas 
 import excel
 
+#Connecting to arduino port and then setting up serial object
 arduino_port = input("Enter the name of the arduino port(read it from arduino IDE)")
 baud = 9600
 
@@ -18,10 +20,8 @@ print("Connected to Arduino port:" + arduino_port)
 
 # Author: Animish Murthy
 # Date: 18/05/23
-# ser= [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-#         [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34],
-#         [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51]]
-#inputted=ser
+
+#Reading the raw values from the arduino,
 inputted=[]
 for i in range(5):
         getData = ser.readline()
@@ -30,9 +30,10 @@ for i in range(5):
         inputted.append(datastring)
         
 
+#This creates a GUI file and stores its output(a dictionary) in the variable value
 value=gui.data_entry()
 
-
+#It converts to the standard units which may be different from SI units
 inputted_si=inputted
 for i in inputted:
         suction=formulas.bar_to_m_h2o(i[1])
@@ -41,6 +42,7 @@ for i in inputted:
         delivery=inputted_si[2]
         
 
+#Here some of the values are converted with respect to a proportionate value of RPM which is provided by the GUI
 rated=[]
 single=[]
 def total_head(x,y,z):
@@ -57,7 +59,8 @@ print(rated)
 # Author: Animish Murthy
 # Date: 18/05/23
 
-              
+
+#This is the final list that has all the elements that we need to enter into the table            
 final = inputted_si
 for k, item in enumerate(final):
     final[k].insert(1, inputted[k][1])
@@ -66,15 +69,27 @@ for k, item in enumerate(final):
     print(type(rated[k]))
     final[k].extend(rated[k])
 
-
+#Creates an excel file of the pump test report and then it plots the graph
 excel.excel_file(final)
 graph.grapher(rated, value['capacity_'], value['head_'])  
 
+# Author: Animish Murthy
+# Date: 18/05/23
 
+    
+        
+#                                        _                                               _
+#                                       / \         \"""\		    /"""/       / \
+# 				       /   \         \   \		   /   /       /   \
+#                                     /     \         \   \		  /   /       /     \
+#                                    /   _   \         \   \ 	         /   /       /   _   \
+#                                   /   / \   \         \   \           /   /	    /   / \   \
+#                                  /   /   \   \         \   \         /   /       /   /   \   \ 
+#                                 /   /     \   \         \   \       /   /   	  /   /     \   \
+#                                /    """""""    \         \   \     /   /       /    """""""    \ 
+#                               /                 \	    \   \   /   /       /                 \
+#                              /    /"""""""""\    \	     \   \ /   /       /    /""""""""""\   \
+#                             /    /           \    \ 	      \   V   /	      /    /		\   \
+#                            /    /             \    \         \     /       /    /		 \   \
+#                            """""               """""          """""        """""                """"  
 
-
-#         
-#        /\ \    / /\  
-#       /__\ \  / /__\
-#      /    \ \/ /    \
-          

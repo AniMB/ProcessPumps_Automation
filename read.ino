@@ -18,7 +18,7 @@ int suction, delivery, flow, ampere, power, pf, voltage, temp, rpm ;  // variabl
 int confirm=0;
 long int t1, t2;
 void setup() {
-  // declare the ledPin as an OUTPUT:
+  // declare the Pin as an OUTPUT or INPUT
   Serial.begin(9600);
   pinMode(suctionpin, INPUT);
   pinMode(deliverypin, INPUT);
@@ -33,7 +33,7 @@ void setup() {
 }
 
 void loop() {
-  // read the value from the sensor:
+  // readS the value from the sensor IF button is pressed
   confirm=digitalRead(buttonpin);
 if (confirm==HIGH){
   suction = analogRead(suctionpin);
@@ -49,6 +49,7 @@ if (confirm==HIGH){
   // Author: Animish Murthy
 // Date: 18/05/23
 
+  // prints the text with commmas
   Serial.print(rpm);
   Serial.print(",");
   Serial.print(suction);
@@ -69,10 +70,6 @@ if (confirm==HIGH){
   Serial.print('/n');
  
   
-    
-    
-    
-    
   delay(1000);
   }
 
@@ -80,3 +77,20 @@ if (confirm==HIGH){
 }
 // Author: Animish Murthy
 // Date: 18/05/23
+
+
+//                                        _                                               _
+//                                       / \         \"""\		    /"""/       / \
+// 				       /   \         \   \		   /   /       /   \
+//                                     /     \         \   \		  /   /       /     \
+//                                    /   _   \         \   \ 	         /   /       /   _   \
+//                                   /   / \   \         \   \           /   /	    /   / \   \
+//                                  /   /   \   \         \   \         /   /       /   /   \   \ 
+//                                 /   /     \   \         \   \       /   /   	  /   /     \   \
+//                                /    """""""    \         \   \     /   /       /    """""""    \ 
+//                               /                 \	    \   \   /   /       /                 \
+//                              /    /"""""""""\    \	     \   \ /   /       /    /""""""""""\   \
+//                             /    /           \    \ 	      \   V   /	      /    /		\   \
+//                            /    /             \    \         \     /       /    /		 \   \
+//                            """""               """""          """""        """""                """"  
+
