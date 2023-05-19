@@ -35,8 +35,7 @@ def data_entry():
 
 
 
-
-    #Project info 
+#Project info 
     project_frame=tkinter.LabelFrame(frame,text="PROJECT INFO")
     project_frame.grid(row=0, column=0,sticky='ew')
 # Author: Animish Murthy
@@ -66,7 +65,6 @@ def data_entry():
     mechSeal=tkinter.Entry(project_frame)
     mechSeal.grid(row=5, column=1)
 
-
     special_label=tkinter.Label(project_frame, text='Special Features')
     special_label.grid(row=7, column=0)
     special=tkinter.Entry(project_frame)
@@ -77,9 +75,7 @@ def data_entry():
         widget.grid_configure( pady=1)
 
 
-
-
-    #SET values
+#SET values
     initial_frame=tkinter.LabelFrame(frame, text="Initial pump operating Values")
     initial_frame.grid(row=1, column=0,sticky='ew')
     
@@ -155,9 +151,7 @@ def data_entry():
 
 
         
-        
-        
-    #Testing motor details
+   #Testing motor details
     motor_frame=tkinter.LabelFrame(frame, text="Testing motor Values")
     motor_frame.grid(row=2, column=0, sticky='ew')
     
@@ -223,9 +217,7 @@ def data_entry():
         
     
     
-    
-    
-     # this part can be made usable if required. Howver some changes must be made to the code   
+   # this part can be made usable if required. Howver some changes must be made to the code   
     #RPM input                     
     '''rpm_frame=tkinter.LabelFrame(frame, text="RPM values")
     rpm_frame.grid(row=4, column=0,sticky='ew')
@@ -259,10 +251,7 @@ def data_entry():
         
         
         
-        
-        
-        
-    #Additional  values
+#Additional  values
     additional_frame=tkinter.LabelFrame(frame, text="Initial Values")
     additional_frame.grid(row=4, column=0,sticky='ew')
     
@@ -369,10 +358,8 @@ def data_entry():
         }
 
         
-                
-        return dictionary
+      return dictionary
       
-
     def exit_call():                                   #enters data into functiona and then ends the function
         enter_data()
         window.quit()
@@ -385,18 +372,27 @@ def data_entry():
     data_entry_button=tkinter.Button(frame, text="Enter data into System", command=exit_call)
     data_entry_button.grid(row=5, column=0,  pady=10, sticky='news')
     
-    
-         
-            
     window.mainloop()
     return enter_data()
     
 # Author: Animish Murthy
 # Date: 18/05/23
 
-#         
-#        /\ \    / /\  
-#       /__\ \  / /__\
-#      /    \ \/ /    \    
+
+#                                        _                                               _
+#                                       / \         \"""\		    /"""/       / \
+# 				       /   \         \   \		   /   /       /   \
+#                                     /     \         \   \		  /   /       /     \
+#                                    /   _   \         \   \ 	         /   /       /   _   \
+#                                   /   / \   \         \   \           /   /	    /   / \   \
+#                                  /   /   \   \         \   \         /   /       /   /   \   \ 
+#                                 /   /     \   \         \   \       /   /   	  /   /     \   \
+#                                /    """""""    \         \   \     /   /       /    """""""    \ 
+#                               /                 \	    \   \   /   /       /                 \
+#                              /    /"""""""""\    \	     \   \ /   /       /    /""""""""""\   \
+#                             /    /           \    \ 	      \   V   /	      /    /		\   \
+#                            /    /             \    \         \     /       /    /		 \   \
+#                            """""               """""          """""        """""                """"  
+
 
 
