@@ -92,36 +92,17 @@ def grapher(data, capacity, head):
     plt.grid(True, color='#5F2D9A')
     plt.show()
     
-#         
-#        /\ \    / /\  
-#       /__\ \  / /__\
-#      /    \ \/ /    \    
-    
-
-#Useless Code i didn't wanna waste cause I put in too much hardwork
-# it will show the value of the point you have clicked on and then additonally maps it out with with respect to another range
-    # def map_range(value, old_min, old_max, new_min, new_max):
-    
-    # # Maps a value from the old range [old_min, old_max] to the new range [new_min, new_max]
-    
-    #     old_range = old_max - old_min
-    #     new_range = new_max - new_min
-    #     scaled_value = (value - old_min) / old_range
-    #     return new_min + (scaled_value * new_range)
-
-
-    # def onclick(event,x1,y3):
-                   
-    #     duty_point_x= event.xdata
-    #     duty_point_y=event.ydata
-    #     ax.plot([duty_point_x,duty_point_x],[duty_point_y, 0], 'C8--')
-    #     plt.plot([duty_point_x, 0],[duty_point_y, duty_point_y], 'C8--')
-    #     ax.annotate(f'{map_range(duty_point_x,0, (max(y3)),0, (max(x1))):.2f}', xy=(duty_point_x, 0), xytext=(duty_point_x+0.5, 0.5), )
-    #     plt.annotate(f'{duty_point_y:.2f}', xy=(0, duty_point_y), xytext=(0.5, duty_point_y+0.5))
-    #     plt.scatter([duty_point_x], [duty_point_y], s=100)
-    #     plt.show()
-    
-    # ax.figure.canvas.mpl_connect('button_press_event', lambda event :onclick(event, x1, y3))
-        
-        
-    
+#                                        _                                               _
+#                                       / \         \"""\		    /"""/       / \
+# 				       /   \         \   \		   /   /       /   \
+#                                     /     \         \   \		  /   /       /     \
+#                                    /   _   \         \   \ 	         /   /       /   _   \
+#                                   /   / \   \         \   \           /   /	    /   / \   \
+#                                  /   /   \   \         \   \         /   /       /   /   \   \ 
+#                                 /   /     \   \         \   \       /   /   	  /   /     \   \
+#                                /    """""""    \         \   \     /   /       /    """""""    \ 
+#                               /                 \	    \   \   /   /       /                 \
+#                              /    /"""""""""\    \	     \   \ /   /       /    /""""""""""\   \
+#                             /    /           \    \ 	      \   V   /	      /    /		\   \
+#                            /    /             \    \         \     /       /    /		 \   \
+#                            """""               """""          """""        """""                """"  
