@@ -81,7 +81,8 @@ def grapher(data, capacity, head):
     ax2.set_ylabel('Efficiency(%)')
     
 # Author: Animish Murthy
-# Date: 18/05/23   
+# Date: 18/05/23 
+
     # here we see the legend
     handles = [p1, p2,p3,p4]
     labels = [p1.get_label(), p2.get_label(), p3.get_label(), p4.get_label()]
