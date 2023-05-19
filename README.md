@@ -4,4 +4,5 @@ The project involves recieving data from multiple sensors connected to a pump te
 The input to the system shall be made using arduino
 Then we shall extarct the data, using tkinter from the user.
 Finally, both the datasets shall be combined to give the most a final database and a graph.
+
 ![logo](https://github.com/AniMB/ProcessPumps_Automation/assets/120055908/a1b60576-649a-4aad-9b60-6af59522537f) 
