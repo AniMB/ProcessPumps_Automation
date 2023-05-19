@@ -6,4 +6,4 @@ The input to the system shall be made using arduino
 Then we shall extarct the data, using tkinter from the user.
 Finally, both the datasets shall be combined to give the most a final database and a graph.
 
-![logo](https://github.com/AniMB/ProcessPumps_Automation/assets/120055908/a1b60576-649a-4aad-9b60-6af59522537f) 
+![logo](https://github.com/AniMB/ProcessPumps_Automation/assets/120055908/49856c76-1fef-46e1-8fe2-28e8d9c54c5e)
